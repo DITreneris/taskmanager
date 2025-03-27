@@ -22,6 +22,7 @@ Tempo Task is a web-based application that allows you to:
 - **Task Analytics:** Visual representation of task progress and statistics
 - **Robust Error Handling:** Automatic retry logic and connection recovery
 - **Simplified Startup:** Single command to start both frontend and backend
+- **Task Insights Dashboard:** AI-powered analytics to visualize productivity patterns and trends
 
 ## Technical Stack
 
@@ -133,6 +134,35 @@ tempo/
 ├── start.py             # Unified startup script
 └── README.md            # This file
 ```
+
+## Task Insights Feature
+
+The new Task Insights panel provides AI-driven analytics about your task management patterns:
+
+### Analytics Provided
+
+- **Task Status Overview:** Visual breakdown of pending, in-progress, and completed tasks
+- **Priority Distribution:** Analysis of high, medium, and low priority task distribution
+- **Smart Category Detection:** Automatic categorization of tasks based on keyword analysis
+- **Productivity Score:** Dynamic scoring of productivity based on completion rates and deadlines
+- **Trend Analysis:** Visual representation of completion rates and on-time performance
+
+### How It Works
+
+- **Real-time Updates:** All insights update instantly as you modify tasks
+- **Intelligent Categorization:** Tasks are automatically categorized based on keywords in titles
+- **Pattern Recognition:** The system identifies task patterns to help optimize your workflow
+- **Performance Metrics:** Calculates productivity score based on task completion and timeliness
+
+### Smart Category Detection
+
+The system automatically detects these categories based on keywords:
+- **Development:** Tasks containing dev, develop, code, program, bug, fix, feature
+- **Documentation:** Tasks containing doc, document, write, draft
+- **Meeting:** Tasks containing meet, call, discuss, review
+- **Planning:** Tasks containing plan, strategy, design, organize
+- **Research:** Tasks containing research, study, analyze, investigate
+- **Personal:** Tasks containing personal, home, life, family
 
 ## New Robustness Features
 
@@ -267,3 +297,7 @@ Contributions are welcome!
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+<div class="footer">
+    <p>Tempo Task v2.0 | Developed with <span style="font-size:1.2em;">🧠</span> AI Technology</p>
+  </div>

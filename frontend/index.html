@@ -22,28 +22,39 @@
       --color-border-default: #D1D5DB;
       
       /* Brand Colors */
-      --color-header: #6366F1;
-      --color-primary: #6366F1;
-      --color-accent: #6366F1;
+      --color-header: #2563EB;
+      --color-primary: #2563EB;
+      --color-accent: #2563EB;
       
       /* Status Colors */
-      --color-status-completed: #10B981;
+      --color-status-completed: #16A34A;
       --color-status-in-progress: #F59E0B;
       --color-status-pending: #F59E0B;
-      --color-status-overdue: #EF4444;
+      --color-status-overdue: #DC2626;
       
       /* Button Colors */
-      --color-button-edit: #3B82F6;
-      --color-button-edit-hover: #2563EB;
-      --color-button-complete: #22C55E;
-      --color-button-complete-hover: #16A34A;
-      --color-button-delete: #EF4444;
-      --color-button-delete-hover: #DC2626;
+      --color-button-edit: #2563EB;
+      --color-button-edit-hover: #1D4ED8;
+      --color-button-complete: #16A34A;
+      --color-button-complete-hover: #15803D;
+      --color-button-delete: #DC2626;
+      --color-button-delete-hover: #B91C1C;
       
       /* Badge Colors */
-      --color-priority-high: var(--color-status-overdue);
-      --color-priority-medium: #8B5CF6;
-      --color-priority-low: var(--color-status-completed);
+      --color-priority-high: #FECACA;
+      --color-priority-medium: #EDE9FE;
+      --color-priority-low: #DBEAFE;
+      
+      /* Status Badge Background Colors */
+      --color-status-bg-completed: #DCFCE7;
+      --color-status-bg-in-progress: #FEF3C7;
+      --color-status-bg-pending: #E0E7FF;
+      
+      /* Category Colors */
+      --color-category-documentation: #F3F4F6;
+      --color-category-research: #E0F2FE;
+      --color-category-meeting: #FEF9C3;
+      --color-category-development: #EDE9FE;
       
       /* Feedback Colors */
       --color-error: #FEE2E2;
@@ -213,20 +224,20 @@
       border-radius: var(--border-radius-badge);
       display: inline-block;
       margin-right: 5px;
-      color: white;
+      color: var(--color-text-primary);
       font-weight: var(--font-weight-medium);
     }
     
     .status-badge.completed {
-      background-color: var(--color-status-completed);
+      background-color: var(--color-status-bg-completed);
     }
     
     .status-badge.pending {
-      background-color: var(--color-status-pending);
+      background-color: var(--color-status-bg-pending);
     }
     
     .status-badge.in-progress {
-      background-color: var(--color-status-in-progress);
+      background-color: var(--color-status-bg-in-progress);
     }
     
     .priority-badge.high {
@@ -498,6 +509,192 @@
       opacity: 0.5;
       cursor: not-allowed;
     }
+
+    .insights-container {
+      padding: 15px;
+      background-color: var(--color-background);
+      border-radius: var(--border-radius);
+    }
+
+    .insight-card {
+      background-color: var(--color-card);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: var(--box-shadow-card);
+    }
+
+    .insight-card h3 {
+      color: var(--color-header);
+      font-size: var(--font-size-subheading);
+      margin: 0 0 15px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 10px;
+      background-color: var(--color-background);
+      border-radius: var(--border-radius);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: var(--font-size-small);
+      color: var(--color-text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: var(--font-size-heading);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-header);
+    }
+
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .productivity-score {
+      text-align: center;
+    }
+
+    #productivity-value {
+      font-size: 48px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-header);
+    }
+
+    #productivity-label {
+      color: var(--color-text-secondary);
+      margin-top: 5px;
+    }
+
+    .trends-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trend-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: var(--color-background);
+      border-radius: var(--border-radius);
+    }
+
+    .trend-label {
+      color: var(--color-text-secondary);
+    }
+
+    .trend-value {
+      font-weight: var(--font-weight-medium);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: var(--color-card);
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .stat-item.pending .stat-value {
+      color: var(--color-status-pending);
+    }
+    
+    .stat-item.in-progress .stat-value {
+      color: var(--color-status-in-progress);
+    }
+    
+    .stat-item.completed .stat-value {
+      color: var(--color-status-completed);
+    }
+    
+    .stat-item.high .stat-value {
+      color: var(--color-button-delete);
+    }
+    
+    .stat-item.medium .stat-value {
+      color: var(--color-primary);
+    }
+    
+    .stat-item.low .stat-value {
+      color: var(--color-button-complete);
+    }
+    
+    .category-item {
+      border-left: 4px solid var(--color-category-development);
+      padding-left: 10px;
+      background-color: #F9FAFB;
+    }
+    
+    .category-item.documentation {
+      border-color: var(--color-category-documentation);
+      background-color: var(--color-category-documentation);
+    }
+    
+    .category-item.research {
+      border-color: var(--color-category-research);
+      background-color: var(--color-category-research);
+    }
+    
+    .category-item.meeting {
+      border-color: var(--color-category-meeting);
+      background-color: var(--color-category-meeting);
+    }
+    
+    .category-item.development {
+      border-color: var(--color-category-development);
+      background-color: var(--color-category-development);
+    }
+    
+    #productivity-value {
+      color: var(--color-productivity-score-default, var(--color-primary));
+    }
+    
+    #productivity-value.very-good {
+      color: var(--color-button-complete);
+    }
+    
+    #productivity-value.moderate {
+      color: var(--color-status-in-progress);
+    }
+    
+    #productivity-value.low {
+      color: var(--color-button-delete);
+    }
   </style>
 </head>
 
@@ -616,9 +813,88 @@
         
         <button id="addTask">Add Task</button>
       </div>
-      
+
+      <h2>Task Insights</h2>
+      <div class="insights-container">
+        <div class="insight-card">
+          <h3>Task Status Overview</h3>
+          <div id="status-stats" class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Pending</span>
+              <span class="stat-value" id="pending-count">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">In Progress</span>
+              <span class="stat-value" id="progress-count">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Completed</span>
+              <span class="stat-value" id="completed-count">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <h3>Priority Distribution</h3>
+          <div id="priority-stats" class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">High</span>
+              <span class="stat-value" id="high-priority-count">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Medium</span>
+              <span class="stat-value" id="medium-priority-count">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Low</span>
+              <span class="stat-value" id="low-priority-count">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <h3>Task Categories</h3>
+          <div id="category-stats" class="category-list"></div>
+        </div>
+
+        <div class="insight-card">
+          <h3>Productivity Score</h3>
+          <div class="productivity-score">
+            <div id="productivity-value">--</div>
+            <div id="productivity-label">Calculating...</div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <h3>Recent Trends</h3>
+          <div id="trends-stats" class="trends-list">
+            <div class="trend-item" id="completion-trend">
+              <span class="trend-label">Completion Rate</span>
+              <span class="trend-value">--</span>
+            </div>
+            <div class="trend-item" id="ontime-trend">
+              <span class="trend-label">On-time Rate</span>
+              <span class="trend-value">--</span>
+            </div>
+            <div class="trend-item" id="overdue-trend">
+              <span class="trend-label">Overdue Tasks</span>
+              <span class="trend-value">--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Tempo Task v2.0 | Developed with <span style="font-size:1.2em;">🧠</span> AI Technology</p>
+  </div>
+
+  <div id="editTaskModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
       <h2>Edit Task</h2>
-      <div id="editForm" class="task-form" style="display: none;">
+      <div class="task-form">
         <div class="form-group">
           <label for="editTaskTitle">Task Title:</label>
           <input type="text" id="editTaskTitle" placeholder="Enter task title">
@@ -652,10 +928,6 @@
         <button id="cancelEdit">Cancel</button>
       </div>
     </div>
-  </div>
-  
-  <div class="footer">
-    <p>Tempo Task v1.0 | Developed with <span style="font-size:1.2em;">🧠</span> AI Technology</p>
   </div>
 
   <script>
@@ -812,6 +1084,8 @@
       completedTasksEl.textContent = completed;
       pendingTasksEl.textContent = pending;
       overdueTasksEl.textContent = overdue;
+      
+      updateInsights(tasks);
     }
     
     // Display tasks in the DOM
@@ -916,7 +1190,7 @@
       }
     }
     
-    // Prepare task editing
+    // Update the editTask function to use the modal
     async function editTask(taskId) {
       try {
         const response = await fetch(`${API_URL}/api/tasks/${taskId}`);
@@ -933,15 +1207,14 @@
         editTaskDueDateInput.value = task.due_date || '';
         editTaskIdInput.value = task.id;
         
-        editForm.style.display = 'block';
-        window.scrollTo({ top: editForm.offsetTop - 20, behavior: 'smooth' });
+        document.getElementById('editTaskModal').style.display = 'block';
       } catch (error) {
         console.error('Error loading task for editing:', error);
         alert(`Error loading task for editing: ${error.message}`);
       }
     }
     
-    // Update a task
+    // Update the updateTask function
     async function updateTask() {
       const taskId = parseInt(editTaskIdInput.value);
       const title = editTaskTitleInput.value.trim();
@@ -964,7 +1237,7 @@
         });
         
         if (response.ok) {
-          editForm.style.display = 'none';
+          document.getElementById('editTaskModal').style.display = 'none';
           resetToFirstPage();
         } else {
           const errorData = await response.json();
@@ -1033,7 +1306,7 @@
     addTaskBtn.addEventListener('click', addTask);
     updateTaskBtn.addEventListener('click', updateTask);
     cancelEditBtn.addEventListener('click', () => {
-      editForm.style.display = 'none';
+      document.getElementById('editTaskModal').style.display = 'none';
     });
     
     // Filter change listeners
@@ -1145,6 +1418,164 @@
       currentPage = 1;
       fetchTasks();
     }
+
+    function updateInsights(tasks) {
+      // Status counts
+      const statusCounts = {
+        pending: tasks.filter(t => t.status === 'pending').length,
+        'in-progress': tasks.filter(t => t.status === 'in-progress').length,
+        completed: tasks.filter(t => t.status === 'completed').length
+      };
+
+      // Priority counts
+      const priorityCounts = {
+        high: tasks.filter(t => t.priority === 'high').length,
+        medium: tasks.filter(t => t.priority === 'medium').length,
+        low: tasks.filter(t => t.priority === 'low').length
+      };
+
+      // Update status stats
+      document.getElementById('pending-count').textContent = statusCounts.pending;
+      document.getElementById('progress-count').textContent = statusCounts['in-progress'];
+      document.getElementById('completed-count').textContent = statusCounts.completed;
+
+      // Apply status color classes
+      const pendingItem = document.getElementById('pending-count').closest('.stat-item');
+      const progressItem = document.getElementById('progress-count').closest('.stat-item');
+      const completedItem = document.getElementById('completed-count').closest('.stat-item');
+      
+      pendingItem.classList.add('pending');
+      progressItem.classList.add('in-progress');
+      completedItem.classList.add('completed');
+
+      // Update priority stats
+      document.getElementById('high-priority-count').textContent = priorityCounts.high;
+      document.getElementById('medium-priority-count').textContent = priorityCounts.medium;
+      document.getElementById('low-priority-count').textContent = priorityCounts.low;
+
+      // Apply priority color classes
+      const highItem = document.getElementById('high-priority-count').closest('.stat-item');
+      const mediumItem = document.getElementById('medium-priority-count').closest('.stat-item');
+      const lowItem = document.getElementById('low-priority-count').closest('.stat-item');
+      
+      highItem.classList.add('high');
+      mediumItem.classList.add('medium');
+      lowItem.classList.add('low');
+
+      // Calculate and update productivity score
+      const totalTasks = tasks.length;
+      const completedTasks = statusCounts.completed;
+      const overdueTasks = tasks.filter(t => isOverdue(t)).length;
+      
+      let productivityScore = 0;
+      if (totalTasks > 0) {
+        // Base score from completion rate (0-70 points)
+        productivityScore += (completedTasks / totalTasks) * 70;
+        
+        // Penalty for overdue tasks (0-30 points)
+        const overdueRate = 1 - (overdueTasks / totalTasks);
+        productivityScore += overdueRate * 30;
+      }
+      
+      document.getElementById('productivity-value').textContent = Math.round(productivityScore);
+      document.getElementById('productivity-label').textContent = getProductivityLabel(productivityScore);
+
+      // Apply productivity score color class
+      const productivityValueEl = document.getElementById('productivity-value');
+      productivityValueEl.className = ''; // Clear existing classes
+      
+      if (productivityScore >= 75) {
+        productivityValueEl.classList.add('very-good');
+      } else if (productivityScore >= 40) {
+        productivityValueEl.classList.add('moderate');
+      } else {
+        productivityValueEl.classList.add('low');
+      }
+
+      // Update trends
+      const completionRate = totalTasks > 0 ? ((completedTasks / totalTasks) * 100).toFixed(1) + '%' : '--';
+      const onTimeRate = totalTasks > 0 ? (((totalTasks - overdueTasks) / totalTasks) * 100).toFixed(1) + '%' : '--';
+      
+      document.getElementById('completion-trend').querySelector('.trend-value').textContent = completionRate;
+      document.getElementById('ontime-trend').querySelector('.trend-value').textContent = onTimeRate;
+      document.getElementById('overdue-trend').querySelector('.trend-value').textContent = overdueTasks;
+
+      // Detect and display categories
+      const categories = detectCategories(tasks);
+      displayCategories(categories);
+    }
+
+    function getProductivityLabel(score) {
+      if (score >= 90) return 'Excellent!';
+      if (score >= 75) return 'Very Good';
+      if (score >= 60) return 'Good';
+      if (score >= 40) return 'Fair';
+      return 'Needs Improvement';
+    }
+
+    function detectCategories(tasks) {
+      const categoryPatterns = {
+        'Development': /\b(dev|develop|code|program|bug|fix|feature)\b/i,
+        'Documentation': /\b(doc|document|write|draft)\b/i,
+        'Meeting': /\b(meet|call|discuss|review)\b/i,
+        'Planning': /\b(plan|strategy|design|organize)\b/i,
+        'Research': /\b(research|study|analyze|investigate)\b/i,
+        'Personal': /\b(personal|home|life|family)\b/i
+      };
+
+      const categories = {};
+      
+      tasks.forEach(task => {
+        for (const [category, pattern] of Object.entries(categoryPatterns)) {
+          if (pattern.test(task.title)) {
+            categories[category] = (categories[category] || 0) + 1;
+          }
+        }
+      });
+
+      return categories;
+    }
+
+    function displayCategories(categories) {
+      const categoryList = document.getElementById('category-stats');
+      categoryList.innerHTML = '';
+
+      Object.entries(categories)
+        .sort(([,a], [,b]) => b - a)
+        .forEach(([category, count]) => {
+          const div = document.createElement('div');
+          div.className = 'trend-item category-item';
+          
+          // Add category-specific class for styling
+          const lowerCategory = category.toLowerCase();
+          if (['documentation', 'research', 'meeting', 'development'].includes(lowerCategory)) {
+            div.classList.add(lowerCategory);
+          }
+          
+          div.innerHTML = `
+            <span class="trend-label">${category}</span>
+            <span class="trend-value">${count} tasks</span>
+          `;
+          categoryList.appendChild(div);
+        });
+
+      if (categoryList.children.length === 0) {
+        categoryList.innerHTML = '<div class="trend-item"><span class="trend-label">No categories detected</span></div>';
+      }
+    }
+
+    // Add modal close functionality
+    document.querySelector('.modal-close').addEventListener('click', () => {
+      document.getElementById('editTaskModal').style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('editTaskModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
   </script>
 </body>
 
