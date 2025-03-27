@@ -1,0 +1,12 @@
+# Workspace version: 1.43.1
+fastapi==0.111.0
+python-multipart==0.0.9
+uvicorn[standard]==0.29.0
+openai
+beautifulsoup4
+requests
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+dateparser
+python-dotenv
